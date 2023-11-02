@@ -1,23 +1,31 @@
 const url = 'https://jsonplaceholder.typicode.com/users';
 
+let currentSortingOrder = null; // Variable to store the current sorting order
+let displayedUsers = []; // Variable to store the currently displayed users
+
 function fetchUserData() {
     return fetch(url)
-    .then((response) => response.json())
-    .catch(function (error) {
-        console.log('Error:', error);
-        return [];
-    });
+        .then((response) => response.json())
+        .catch(function (error) {
+            console.log('Error:', error);
+            return [];
+        });
 }
 
 function displayUsers(userArray) {
     const displayUsers = document.getElementById('allUsers');
     const dFrag = document.createDocumentFragment();
     displayUsers.innerHTML = '';
+    
+    // Sort the displayedUsers based on the currentSortingOrder
+    if (currentSortingOrder) {
+        userArray.sort(currentSortingOrder);
+    }
 
     if (userArray.length > 0) {
         userArray.forEach((user) => {
             const div = document.createElement('div');
-            div.classList.add('col-lg-3', 'col-md-6', 'col-sm-6', 'mb-4');
+            div.classList.add('col-md-3', 'mb-4');
             let templateString = `
             
                 <div class="profile-data">
@@ -116,14 +124,20 @@ function displayUsers(userArray) {
     }
 }
 
-
 function filterByName() {
     const searchText = document.getElementById('search').value.toLowerCase();
     if (searchText === '' || searchText === null) {
-        displayAll();
+        if (currentSortingOrder) {
+            // If there is a sorting order, re-sort and display the sorted users
+            sortUsers(currentSortingOrder);
+        } else {
+            // If there's no sorting order, display all users
+            displayAll();
+        }
     } else {
         fetchUserData().then((data) => {
             const filteredUsers = data.filter((user) => user.name.toLowerCase().includes(searchText));
+            displayedUsers = filteredUsers; // Update the currently displayed users
             displayUsers(filteredUsers);
         });
     }
@@ -131,14 +145,17 @@ function filterByName() {
 
 function displayAll() {
     fetchUserData().then((data) => {
+        displayedUsers = data; // Update the currently displayed users
         displayUsers(data);
     });
 }
 
 function sortUsers(comparator) {
     fetchUserData().then((data) => {
-        const sortedUsers = data.slice().sort(comparator);
-        displayUsers(sortedUsers);
+        currentSortingOrder = comparator; // Update the current sorting order
+        data.sort(comparator);
+        displayedUsers = data; // Update the currently displayed users
+        displayUsers(data);
     });
 }
 
