@@ -5,6 +5,12 @@ body {
     font-family: 'Roboto', sans-serif;
     font-family: 'Rubik', sans-serif;
 }
+div.top-container {
+    padding-top: 78px;
+}
+div.top-search-filter {
+    padding-bottom: 100px;
+}
 div.search-holder input {
     position: relative;
     padding-left: 30px;
@@ -24,13 +30,13 @@ div.profile-data{
     background-color: #fff;
     border: 1px solid #fff;
     border-radius: 10px;
-    min-height: 700px !important;
+    min-height: 735px !important;
 }
 div.img-holder {
     width: 100%;
-    height: 250px;
+    height: 289px;
     overflow: hidden;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 8px 8px 0px 0px;
 }
 div.top-data h3 {
     font-weight: 500;
@@ -70,8 +76,40 @@ div.bottom-data p{
     line-height: 25px;
     color: #202223;
 }
-
+.dropdown-center, .dropdown-item {
+    color: #202223;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px
+}
+.dropdown-center button {
+    min-width: 222px;
+}
+.dropdown-center button:hover, .dropdown-center button:focus{
+    background-color: #fff;
+}
+a.dropdown-item {
+    line-height: 25px;
+    padding: 12px;
+}
+.dropdown-menu {
+    min-width: 222px;
+}
+span.me-1, .gap {
+    padding-right: 13px !important;
+    margin-right: 0;
+}
 @media only screen and (max-width: 768px) {
+    div.top-container {
+        padding-top: 23px;
+    }
+    div.top-search-filter {
+        padding-bottom: 50px;
+    }
+    div.search-holder{
+        padding-bottom: 19px;
+    }
     div.profile-data {
         min-height: fit-content !important;
     }
@@ -105,4 +143,28 @@ div.bottom-data p{
     div.bottom-data p img {
         width: 14.4px;
     }
+    .dropdown-center, .dropdown-item {
+        color: #202223;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px
+    }
+    .dropdown-center button {
+        min-width: 222px;
+    }
+    a.dropdown-item {
+        line-height: 25px;
+        padding: 12px;
+    }
+    .dropdown-menu {
+        min-width: 222px;
+    }
+    /* .center-img {
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        border: 1px solid red;
+    } */
 }

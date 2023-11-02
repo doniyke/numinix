@@ -62,47 +62,72 @@ function displayUsers(userArray) {
                         </div>
                     </div>
                     <div class="bottom-data p-2 mt-0 pt-0">
-                        <p>
-                            <span class="me-1">
-                                <img src="assets/images/mail.png" alt="">
-                            </span>
-                            ${user.email}
-                        </p>
-                        <p>
-                            <span class="me-1">
-                                <img src="assets/images/map.png" alt="">
-                            </span>
-                            ${user.address.street}, 
-                            ${user.address.suite} , 
-                            ${user.address.city}, 
-                            ${user.address.zipcode}, 
-                            ${user.address.geo.lat}, 
-                            ${user.address.geo.lng}
-                        </p>
-                        <p>
-                            <span class="me-1">
-                                <img src="assets/images/phone.png" alt="">
-                            </span>
-                            ${user.phone}
-                        </p>
-                        <p>
-                            <span class="me-1">
-                                <img src="assets/images/web.png" alt="">
-                            </span>
-                            ${user.website}
-                        </p>
-                        <p>
-                            <span class="me-1">
-                                <img src="assets/images/company.png" alt="">
-                            </span>
-                            ${user.company.name}
-                        </p>
-                        <p>
-                            <span class="me-1">
-                                <img src="assets/images/bs.png" alt="">
-                            </span>
-                            ${user.company.bs}
-                        </p>
+                        <div class="d-flex">
+                            <p class="gap">
+                                <span>
+                                    <img src="assets/images/mail.png" alt="">
+                                </span>
+                            </p>
+                            <p>
+                                ${user.email}
+                            </p>
+                        </div>
+
+                        <div class="d-flex">
+                            <p class="gap">
+                                <span>
+                                    <img src="assets/images/map.png" alt="">
+                                </span>
+                            </p>
+                            <p>
+                                ${user.address.street}, 
+                                ${user.address.suite} , 
+                                ${user.address.city}, 
+                                ${user.address.zipcode}, 
+                                ${user.address.geo.lat}, 
+                                ${user.address.geo.lng}
+                            </p>
+                        </div>
+                        <div class="d-flex">
+                            <p class="gap">
+                                <span>
+                                    <img src="assets/images/phone.png" alt="">
+                                </span>
+                            </p>
+                            <p>
+                                ${user.phone}
+                            </p>
+                        </div>
+                        <div class="d-flex">
+                            <p class="gap">
+                                <span>
+                                    <img src="assets/images/web.png" alt="">
+                                </span>
+                            </p>
+                            <p>
+                                ${user.website}
+                            </p>
+                        </div>
+                        <div class="d-flex">
+                            <p class="gap">
+                                <span>
+                                    <img src="assets/images/company.png" alt="">
+                                </span>
+                            </p>
+                            <p>
+                                ${user.company.name}
+                            </p>
+                        </div>
+                        <div class="d-flex">
+                            <p class="gap">
+                                <span>
+                                    <img src="assets/images/bs.png" alt="">
+                                </span>
+                            </p>
+                            <p>
+                                ${user.company.bs}
+                            </p>
+                        </div>
                     </div>
                 </div>
         `;
