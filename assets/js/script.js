@@ -35,14 +35,14 @@ function displayUsers(userArray) {
                                 </div>
                                 <div class="col-4">
                                     <div class="p-3">
-                                        <img src="https://loremflickr.com/500/500?random=${user.id}" class="img-fluid rounded-circle" width="106px">
+                                        <img src="https://loremflickr.com/500/500/man?random=${user.id}" class="img-fluid rounded-circle" width="106px">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="d-none d-md-block mb-0 pb-0">
                             <div class="img-holder">
-                                <img src="https://loremflickr.com/500/500?random=${user.id}" class="img-fluid">
+                                <img src="https://loremflickr.com/500/500/man?random=${user.id}" class="img-fluid">
                             </div>
                             <div class="p-2 mb-0 pb-0">
                                 <h3>${user.name}</h3>
