@@ -153,8 +153,8 @@ function displayUsers(userArray) {
 function filterByName() {
     const searchText = document.getElementById('search').value.toLowerCase();
     if (searchText === '' || searchText === null) {
-        // If there is no search text, display all users
-        displayAll();
+        // If there is no search text, clear the search filter and display all users
+        clearSearchFilter();
     } else {
         const filteredUsers = allUsers.filter((user) => user.name.toLowerCase().includes(searchText));
         displayedUsers = filteredUsers; // Update the currently displayed users
@@ -162,6 +162,10 @@ function filterByName() {
     }
 }
 
+function clearSearchFilter() {
+    displayedUsers = allUsers; // Use all users when the search is cleared
+    displayUsers(allUsers);
+}
 
 function displayAll() {
     if (displayedUsers.length > 0) {
@@ -176,6 +180,7 @@ function displayAll() {
         });
     }
 }
+
 
 function sortUsers(comparator) {
     displayedUsers.sort(comparator); // Sort only the displayed users
