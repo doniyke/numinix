@@ -2,6 +2,7 @@ const url = 'https://jsonplaceholder.typicode.com/users';
 
 let currentSortingOrder = null; // Variable to store the current sorting order
 let displayedUsers = []; // Variable to store the currently displayed users
+let allUsers = []; // Variable to store all users
 
 function fetchUserData() {
     return fetch(url)
@@ -152,36 +153,42 @@ function displayUsers(userArray) {
 function filterByName() {
     const searchText = document.getElementById('search').value.toLowerCase();
     if (searchText === '' || searchText === null) {
-        if (currentSortingOrder) {
-            // If there is a sorting order, re-sort and display the sorted users
-            sortUsers(currentSortingOrder);
-        } else {
-            // If there's no sorting order, display all users
-            displayAll();
-        }
+        // If there is no search text, display all users
+        displayAll();
     } else {
+        const filteredUsers = allUsers.filter((user) => user.name.toLowerCase().includes(searchText));
+        displayedUsers = filteredUsers; // Update the currently displayed users
+        displayUsers(filteredUsers);
+    }
+}
+
+
+function displayAll() {
+    if (displayedUsers.length > 0) {
+        // If there are displayed users, sort and display them
+        sortDisplayedUsers();
+    } else {
+        // If no displayed users, fetch and display all users
         fetchUserData().then((data) => {
-            const filteredUsers = data.filter((user) => user.name.toLowerCase().includes(searchText));
-            displayedUsers = filteredUsers; // Update the currently displayed users
-            displayUsers(filteredUsers);
+            allUsers = data; // Store all users
+            displayedUsers = data; // Update the currently displayed users
+            displayUsers(data);
         });
     }
 }
 
-function displayAll() {
-    fetchUserData().then((data) => {
-        displayedUsers = data; // Update the currently displayed users
-        displayUsers(data);
-    });
+function sortUsers(comparator) {
+    displayedUsers.sort(comparator); // Sort only the displayed users
+    currentSortingOrder = comparator; // Update the current sorting order
+    displayUsers(displayedUsers);
 }
 
-function sortUsers(comparator) {
-    fetchUserData().then((data) => {
-        currentSortingOrder = comparator; // Update the current sorting order
-        data.sort(comparator);
-        displayedUsers = data; // Update the currently displayed users
-        displayUsers(data);
-    });
+
+function sortDisplayedUsers() {
+    if (currentSortingOrder) {
+        displayedUsers.sort(currentSortingOrder); // Sort only the displayed users
+        displayUsers(displayedUsers);
+    }
 }
 
 function sortAZ() {
@@ -191,5 +198,7 @@ function sortAZ() {
 function sortZA() {
     sortUsers((a, b) => b.name.localeCompare(a.name));
 }
+
+
 
 displayAll();
