@@ -30,7 +30,7 @@ div.profile-data{
     background-color: #fff;
     border: 1px solid #fff;
     border-radius: 10px;
-    min-height: 735px !important;
+    min-height: 750px !important;
 }
 div.img-holder {
     width: 100%;
@@ -100,7 +100,45 @@ span.me-1, .gap {
     padding-right: 13px !important;
     margin-right: 0;
 }
+div.row > div.profile-data-holder {
+    margin-bottom: 67px;
+}
+/* div.row > div.profile-data-holder:first-child{
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+} */
+/* div.row > div.profile-data-holder:last-child{
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+} */
+
+div.container-fluid {
+    padding-left: 167px !important;
+    padding-right: 167px !important;
+}
+div.bottom-data {
+    padding-left: 26px !important;
+    padding-right: 26px !important;
+}
+div.t-data {
+    padding-left: 26px !important;
+    padding-right: 26px !important;
+    padding-top: 26px !important;
+}
+@media only screen and (max-width: 1500px) {
+    div.container-fluid {
+        padding-left: 17px !important;
+        padding-right: 17px !important;
+    }
+}
 @media only screen and (max-width: 768px) {
+    div.container-fluid {
+        padding-left: 17px !important;
+        padding-right: 17px !important;
+    }
+    div.row > div.profile-data-holder {
+        margin-bottom: 26px;
+    }
     div.top-container {
         padding-top: 23px;
     }
@@ -132,7 +170,10 @@ span.me-1, .gap {
         line-height: 18px;
     }
     div.bottom-data {
-        padding-top: 10px !important;
+        padding: 20px !important;
+    }
+    div.t-data {
+        padding: 20px 20px 0px 20px !important;
     }
     div.bottom-data p{
         font-weight: 400;
