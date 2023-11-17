@@ -198,10 +198,12 @@ function sortDisplayedUsers() {
 
 function sortAZ() {
     sortUsers((a, b) => a.name.localeCompare(b.name));
+    document.getElementById('filterButton').innerText = 'Filter by Name (A-Z)';
 }
 
 function sortZA() {
     sortUsers((a, b) => b.name.localeCompare(a.name));
+    document.getElementById('filterButton').innerText = 'Filter by Name (Z-A)';
 }
 
 
